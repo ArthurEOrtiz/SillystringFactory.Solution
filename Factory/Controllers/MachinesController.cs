@@ -68,7 +68,7 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddCategory(int id)
+    public ActionResult AddEngineer(int id)
     {
       var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
@@ -76,7 +76,7 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
-    public ActionResult AddCategory(Machine machine, int EngineerId)
+    public ActionResult AddEngineer(Machine machine, int EngineerId)
     {
         if (EngineerId != 0)
         {
@@ -102,7 +102,7 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
-    public ActionResult DeleteCategory(int joinId)
+    public ActionResult DeleteEngineer(int joinId)
     {
         var joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
         _db.EngineerMachine.Remove(joinEntry);
